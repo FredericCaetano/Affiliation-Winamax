@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>19PokerClub — Affiliation Winamax</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --felt-dark:#08213a;
+    --felt:#0f3a63;
+    --felt-light:#164a7d;
+    --gold:#c6a15b;
+    --gold-bright:#e0c383;
+    --cream:#eef3f8;
+    --cream-dim:#b9c8da;
+    --ink:#08213a;
+    --field-bg:#f7f9fc;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--cream);
+    background:
+      radial-gradient(circle at 15% 10%, rgba(255,255,255,0.05), transparent 45%),
+      radial-gradient(circle at 85% 90%, rgba(0,0,0,0.35), transparent 55%),
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 2px, transparent 2px, transparent 6px),
+      linear-gradient(160deg, var(--felt) 0%, var(--felt-dark) 100%);
+    min-height:100vh;
+    padding:48px 16px 80px;
+  }
+
+  .wrap{
+    max-width:680px;
+    margin:0 auto;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    text-align:center;
+    margin-bottom:30px;
+  }
+  .hero .suits{
+    letter-spacing:14px;
+    color:var(--gold);
+    font-size:20px;
+    margin-bottom:10px;
+    opacity:0.9;
+  }
+  .hero h1{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:clamp(30px, 6vw, 46px);
+    line-height:1.05;
+    margin:0 0 8px;
+    color:var(--cream);
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--gold-bright);
+  }
+  .hero p{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:16px;
+    color:var(--cream-dim);
+    margin:0;
+  }
+
+  /* ---------- Bandeau explicatif ---------- */
+  .info-panel{
+    border:1px solid rgba(198,161,91,0.4);
+    border-radius:16px;
+    background:rgba(198,161,91,0.08);
+    padding:22px 24px;
+    margin-bottom:28px;
+  }
+  .info-panel .info-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:16px;
+    color:var(--gold-bright);
+    margin:0 0 10px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+  .info-panel p{
+    margin:0;
+    font-size:14px;
+    line-height:1.65;
+    color:var(--cream-dim);
+  }
+
+  /* ---------- Table rail (card frame) ---------- */
+  .rail{
+    border:1px solid rgba(198,161,91,0.35);
+    border-radius:22px;
+    padding:6px;
+    background:linear-gradient(180deg, rgba(198,161,91,0.08), transparent 30%);
+  }
+  .felt-card{
+    background:var(--felt-light);
+    border:1px solid rgba(198,161,91,0.55);
+    border-radius:18px;
+    padding:38px clamp(20px,5vw,48px) 44px;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15), 0 20px 50px rgba(0,0,0,0.35);
+  }
+
+  fieldset{
+    border:none;
+    margin:0;
+    padding:0;
+  }
+
+  .legend-row{
+    display:flex;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:1px solid rgba(198,161,91,0.3);
+  }
+  .legend-suit{
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    color:var(--gold);
+    line-height:1;
+  }
+  .legend-title{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:20px;
+    color:var(--cream);
+  }
+  .legend-sub{
+    font-size:12.5px;
+    color:var(--cream-dim);
+    margin-left:auto;
+    font-style:italic;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px 20px;
+  }
+  .grid .full{grid-column:1 / -1;}
+  @media (max-width:560px){
+    .grid{grid-template-columns:1fr;}
+  }
+
+  .field label{
+    display:block;
+    font-size:12.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--gold-bright);
+    margin-bottom:6px;
+    font-weight:600;
+  }
+
+  input[type=text], select{
+    width:100%;
+    padding:12px 14px;
+    border-radius:9px;
+    border:1px solid rgba(8,33,58,0.15);
+    background:var(--field-bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+    outline:none;
+    transition:box-shadow .15s ease, border-color .15s ease;
+    appearance:none;
+    -webkit-appearance:none;
+  }
+  select{
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='9'><path d='M1 1l6 6 6-6' stroke='%2308213a' stroke-width='2' fill='none' fill-rule='evenodd'/></svg>");
+    background-repeat:no-repeat;
+    background-position:right 14px center;
+    padding-right:36px;
+  }
+  input:focus, select:focus{
+    border-color:var(--gold);
+    box-shadow:0 0 0 3px rgba(198,161,91,0.35);
+  }
+  .field small.err{
+    display:block;
+    color:#ffc4c4;
+    font-size:12px;
+    margin-top:5px;
+    min-height:14px;
+  }
+
+  /* ---------- Submit ---------- */
+  .submit-row{
+    margin-top:34px;
+    text-align:center;
+  }
+  button[type=submit]{
+    font-family:'Fraunces',serif;
+    font-weight:600;
+    font-size:18px;
+    letter-spacing:0.02em;
+    color:var(--felt-dark);
+    background:linear-gradient(180deg, var(--gold-bright), var(--gold));
+    border:none;
+    border-radius:999px;
+    padding:15px 44px;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(0,0,0,0.3);
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  button[type=submit]:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(0,0,0,0.38);}
+  button[type=submit]:disabled{opacity:0.6;cursor:wait;transform:none;}
+
+  .status{
+    margin-top:18px;
+    font-size:14px;
+    min-height:20px;
+  }
+  .status.ok{color:#a8d4e0;}
+  .status.bad{color:#ffc4c4;}
+
+  .success-panel{
+    display:none;
+    text-align:center;
+    padding:20px 10px 4px;
+  }
+  .success-panel .suit-big{
+    font-family:'Fraunces',serif;
+    font-size:40px;
+    color:var(--gold);
+    margin-bottom:8px;
+  }
+  .success-panel h2{
+    font-family:'Fraunces',serif;
+    font-size:26px;
+    margin:0 0 8px;
+  }
+  .success-panel p{color:var(--cream-dim);font-size:14.5px;}
+
+  footer{
+    text-align:center;
+    margin-top:30px;
+    color:var(--cream-dim);
+    font-size:12px;
+    letter-spacing:0.04em;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="suits">♠ ♥ ♦ ♣</div>
+    <h1>Rejoins le <em>19PokerClub</em> sur Winamax</h1>
+    <p>Affiliation Winamax — tous clubs</p>
+  </div>
+
+  <div class="info-panel">
+    <p class="info-title">♦ Pourquoi s'affilier au 19PokerClub sur Winamax ?</p>
+    <p id="infoText">
+      <!-- Texte à remplacer par Frédéric : placeholder en attendant le commentaire définitif -->
+      [Texte à venir — décrivant les atouts de l'affiliation au 19PokerClub sur la plateforme Winamax]
+    </p>
+  </div>
+
+  <div class="rail">
+    <div class="felt-card">
+
+      <form id="affiliationForm">
+
+        <fieldset>
+          <div class="legend-row">
+            <span class="legend-suit">♦</span>
+            <span class="legend-title">Tes informations</span>
+            <span class="legend-sub">rapide, 4 champs</span>
+          </div>
+          <div class="grid">
+            <div class="field">
+              <label for="nom">Nom</label>
+              <input type="text" id="nom" name="nom" required autocomplete="family-name">
+              <small class="err"></small>
+            </div>
+            <div class="field">
+              <label for="prenom">Prénom</label>
+              <input type="text" id="prenom" name="prenom" required autocomplete="given-name">
+              <small class="err"></small>
+            </div>
+            <div class="field">
+              <label for="clubAffiliation">Club d'affiliation</label>
+              <select id="clubAffiliation" name="clubAffiliation" required>
+                <option value="" disabled selected>Choisir…</option>
+                <option value="HPCL">HPCL</option>
+                <option value="19PokerClub">19PokerClub</option>
+                <option value="OPC">OPC</option>
+                <option value="Les Lottois">Les Lottois</option>
+                <option value="Autre">Autre</option>
+              </select>
+              <small class="err"></small>
+            </div>
+            <div class="field">
+              <label for="pseudoWinamax">Pseudo Winamax</label>
+              <input type="text" id="pseudoWinamax" name="pseudoWinamax" required autocomplete="off">
+              <small class="err"></small>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="submit-row">
+          <button type="submit" id="submitBtn">Valider mon affiliation</button>
+          <div class="status" id="statusMsg"></div>
+        </div>
+
+      </form>
+
+      <div class="success-panel" id="successPanel">
+        <div class="suit-big">♦ ♣</div>
+        <h2>Affiliation enregistrée</h2>
+        <p>Merci ! Ta demande d'affiliation au 19PokerClub sur Winamax a bien été transmise.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>19PokerClub · Brive-la-Gaillarde · Affiliation Winamax</footer>
+
+</div>
+
+<!-- iframe caché utilisé pour l'envoi vers Google Apps Script sans rechargement de page -->
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+<script>
+  // ==========================================================
+  // ⚠️ Même script Apps Script que le formulaire d'inscription
+  // (même Google Sheet, nouvel onglet dédié) : coller la même
+  // URL de déploiement que sur l'autre formulaire.
+  // ==========================================================
+  const SCRIPT_URL = "COLLER_ICI_URL_DU_WEB_APP_APPS_SCRIPT";
+
+  const form = document.getElementById('affiliationForm');
+  const statusMsg = document.getElementById('statusMsg');
+  const submitBtn = document.getElementById('submitBtn');
+  const successPanel = document.getElementById('successPanel');
+  const hiddenIframe = document.getElementById('hidden_iframe');
+
+  function setError(fieldId, message){
+    const field = document.getElementById(fieldId).closest('.field');
+    const errEl = field.querySelector('.err');
+    errEl.textContent = message || "";
+  }
+
+  function validate(){
+    let ok = true;
+
+    ['nom','prenom'].forEach(id=>{
+      const v = document.getElementById(id).value.trim();
+      if(!v){ setError(id, "Champ requis"); ok = false; } else setError(id,"");
+    });
+
+    if(!document.getElementById('clubAffiliation').value){ setError('clubAffiliation',"Sélectionnez un club"); ok=false; } else setError('clubAffiliation',"");
+
+    const pseudoWinamax = document.getElementById('pseudoWinamax').value.trim();
+    if(!pseudoWinamax){ setError('pseudoWinamax',"Champ requis"); ok=false; } else setError('pseudoWinamax',"");
+
+    return ok;
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    statusMsg.textContent = "";
+    statusMsg.className = "status";
+
+    if(!validate()){
+      statusMsg.textContent = "Merci de corriger les champs indiqués ci-dessus.";
+      statusMsg.classList.add('bad');
+      return;
+    }
+
+    if(SCRIPT_URL.indexOf("COLLER_ICI") !== -1){
+      statusMsg.textContent = "⚠️ L'URL du script Google (SCRIPT_URL) n'a pas encore été configurée.";
+      statusMsg.classList.add('bad');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Envoi en cours…";
+
+    const tempForm = document.createElement('form');
+    tempForm.method = 'POST';
+    tempForm.action = SCRIPT_URL;
+    tempForm.target = 'hidden_iframe';
+
+    const dataToSend = new FormData(form);
+    for(const [key, value] of dataToSend.entries()){
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = value;
+      tempForm.appendChild(input);
+    }
+
+    // Indique au script Apps Script qu'il s'agit du formulaire d'affiliation
+    // (permet de router vers le bon onglet du Sheet et le bon e-mail)
+    const formTypeInput = document.createElement('input');
+    formTypeInput.type = 'hidden';
+    formTypeInput.name = 'formType';
+    formTypeInput.value = 'affiliationWinamax';
+    tempForm.appendChild(formTypeInput);
+
+    document.body.appendChild(tempForm);
+
+    let handled = false;
+    hiddenIframe.addEventListener('load', function onLoad(){
+      if(handled) return;
+      handled = true;
+      hiddenIframe.removeEventListener('load', onLoad);
+      form.style.display = 'none';
+      successPanel.style.display = 'block';
+      document.body.removeChild(tempForm);
+    });
+
+    setTimeout(() => {
+      if(!handled){
+        handled = true;
+        form.style.display = 'none';
+        successPanel.style.display = 'block';
+      }
+    }, 6000);
+
+    tempForm.submit();
+  });
+</script>
+
+</body>
+</html>
