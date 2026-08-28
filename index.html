@@ -149,6 +149,7 @@
   .gallery-title{
     display:flex;
     align-items:center;
+    justify-content:center;
     gap:10px;
     font-family:'Fraunces',serif;
     font-weight:600;
@@ -160,9 +161,10 @@
     font-size:20px;
   }
   .gallery-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill, minmax(84px, 1fr));
-    gap:10px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:12px;
   }
   .gallery-thumb{
     padding:0;
@@ -171,7 +173,9 @@
     overflow:hidden;
     background:none;
     cursor:pointer;
+    width:100px;
     aspect-ratio:3/4;
+    flex:0 0 auto;
     transition:border-color .15s ease, transform .15s ease;
   }
   .gallery-thumb:hover{
