@@ -76,24 +76,70 @@
     border:1px solid rgba(198,161,91,0.4);
     border-radius:16px;
     background:rgba(198,161,91,0.08);
-    padding:22px 24px;
+    padding:26px 26px 30px;
     margin-bottom:28px;
   }
-  .info-panel .info-title{
+  .info-panel .info-heading{
+    font-family:'Fraunces',serif;
+    font-weight:700;
+    font-size:19px;
+    line-height:1.35;
+    color:var(--gold-bright);
+    text-align:center;
+    margin:0 0 16px;
+  }
+  .info-panel .info-subheading{
     font-family:'Fraunces',serif;
     font-weight:600;
-    font-size:16px;
+    font-size:15.5px;
     color:var(--gold-bright);
-    margin:0 0 10px;
-    display:flex;
-    align-items:center;
-    gap:8px;
+    text-align:center;
+    margin:20px 0 8px;
+  }
+  .info-panel .info-subheading:first-of-type{
+    margin-top:4px;
   }
   .info-panel p{
-    margin:0;
+    margin:0 0 10px;
     font-size:14px;
     line-height:1.65;
     color:var(--cream-dim);
+  }
+  .info-panel p:last-child{margin-bottom:0;}
+  .info-panel .info-center{
+    text-align:center;
+  }
+  .info-panel .info-emphasis{
+    text-align:center;
+    font-style:italic;
+    color:var(--cream);
+  }
+  .info-panel ul.info-list{
+    margin:0 0 10px;
+    padding:0 0 0 20px;
+    color:var(--cream-dim);
+    font-size:14px;
+    line-height:1.6;
+  }
+  .info-panel ul.info-list li{
+    margin-bottom:4px;
+  }
+  .info-panel .info-signature{
+    text-align:center;
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-size:14px;
+    color:var(--cream);
+    margin-top:18px;
+    padding-top:14px;
+    border-top:1px solid rgba(198,161,91,0.25);
+  }
+  .info-panel .info-signature strong{
+    display:block;
+    font-style:normal;
+    font-weight:600;
+    margin-top:4px;
+    letter-spacing:0.04em;
   }
 
   /* ---------- Galerie ---------- */
@@ -363,53 +409,43 @@
   </div>
 
   <div class="info-panel">
-    <p class="info-title">♦ Pourquoi s'affilier au 19PokerClub sur Winamax ?</p>
-    <p id="infoText">
-      <!-- Texte à remplacer par Frédéric : placeholder en attendant le commentaire définitif -->
-      <BR🎯 Rejoignez le 19PokerClub et vivez pleinement l’expérience Winamax !</BR>
+    <p class="info-heading">🎯 Rejoignez le 19PokerClub et vivez pleinement l'expérience Winamax !</p>
 
-Vous êtes joueur dans un autre club de poker, mais vous souhaitez également profiter des nombreux championnats proposés sur la plateforme de notre partenaire Winamax ?
+    <p>Le 19PokerClub vous offre la possibilité de vous affilier gratuitement et sans aucun engagement afin de participer à l'ensemble de nos championnats en ligne organisés tout au long de la saison, de septembre à juin.</p>
 
-Le 19PokerClub vous offre la possibilité de vous affilier gratuitement et sans aucun engagement afin de participer à l’ensemble de nos championnats en ligne organisés tout au long de la saison, de septembre à juin.
+    <p class="info-subheading">🏆 Plusieurs championnats tout au long de la saison</p>
+    <p>En vous affiliant au 19PokerClub, vous pourrez participer à 4 championnats Winamax :</p>
 
-🏆 Plusieurs championnats tout au long de la saison
+    <p class="info-subheading">🔴 2 championnats avec des tournois à 2 €</p>
+    <p>Avec notamment à la clé :</p>
+    <ul class="info-list">
+      <li>2 sièges Winamax Live d'une valeur de 500 € chacun</li>
+      <li>670 € de dotation répartis entre les différentes étapes et la grande finale</li>
+    </ul>
 
-En vous affiliant au 19PokerClub, vous pourrez participer à 4 championnats Winamax :
+    <p class="info-subheading">🟢 2 championnats totalement gratuits</p>
+    <p>Une excellente occasion de jouer, de vous mesurer à d'autres joueurs et de tenter de remporter une partie des 647 € de dotation réservés aux meilleurs joueurs des classements généraux.</p>
 
-🔴 2 championnats avec des tournois à 2 €
+    <p class="info-subheading">🎲 Encore plus de tournois chaque mois !</p>
+    <p>L'affiliation au 19PokerClub vous permet également de participer chaque mois aux championnats des clubs Winamax, avec :</p>
+    <ul class="info-list">
+      <li>Des compétitions Sit &amp; Go</li>
+      <li>Des compétitions MTT</li>
+      <li>Plusieurs milliers d'euros de dotation à remporter tout au long de la saison</li>
+    </ul>
 
-Avec notamment à la clé :
+    <p class="info-subheading">🤝 Une affiliation 100 % gratuite et sans engagement</p>
+    <p>Vous restez bien entendu libre de continuer à jouer et à représenter votre club habituel. L'affiliation au 19PokerClub vous permet simplement de profiter de compétitions supplémentaires et de multiplier vos chances de participer à de beaux événements et de remporter des dotations.</p>
+    <p class="info-emphasis">Aucun engagement, aucune obligation : uniquement davantage de poker, de compétitions et de plaisir !</p>
 
-2 sièges Winamax Live d’une valeur de 500 € chacun
-670 € de dotation répartis entre les différentes étapes et la grande finale
+    <p>Pour découvrir en détail les différents championnats, les dotations et leur fonctionnement, n'hésitez pas à consulter les visuels de présentation ou à contacter directement le responsable du 19PokerClub.</p>
 
-🟢 2 championnats totalement gratuits
+    <p class="info-center">Nous serions ravis de vous accueillir parmi nous pour cette nouvelle saison ! ♠️♥️♣️♦️</p>
 
-Une excellente occasion de jouer, de vous mesurer à d’autres joueurs et de tenter de remporter une partie des 647 € de dotation réservés aux meilleurs joueurs des classements généraux.
-
-🎲 Encore plus de tournois chaque mois !
-
-L'affiliation au 19PokerClub vous permet également de participer chaque mois aux championnats des clubs Winamax, avec :
-
-Des compétitions Sit & Go
-Des compétitions MTT
-Plusieurs milliers d’euros de dotation à remporter tout au long de la saison
-🤝 Une affiliation 100 % gratuite et sans engagement
-
-Vous restez bien entendu libre de continuer à jouer et à représenter votre club habituel. L'affiliation au 19PokerClub vous permet simplement de profiter de compétitions supplémentaires et de multiplier vos chances de participer à de beaux événements et de remporter des dotations.
-
-Aucun engagement, aucune obligation : uniquement davantage de poker, de compétitions et de plaisir !
-
-Pour découvrir en détail les différents championnats, les dotations et leur fonctionnement, n’hésitez pas à consulter les visuels de présentation ou à contacter directement le responsable du 19PokerClub.
-
-Nous serions ravis de vous accueillir parmi nous pour cette nouvelle saison ! ♠️♥️♣️♦️
-
-Un grand merci à toutes et à tous, et bonne chance aux tables !
-
-19PokerClub
-
-Si tu veux, je peux aussi te faire une version plus percutante et “publicitaire”, Donne-moi une version spécialement adaptée pour être publiée directement sur Facebook ou dans les groupes de poker.
-    </p>
+    <div class="info-signature">
+      Un grand merci à toutes et à tous, et bonne chance aux tables !
+      <strong>19PokerClub</strong>
+    </div>
   </div>
 
   <div class="gallery-section">
